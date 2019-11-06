@@ -78,19 +78,27 @@ implementation
 
 //---------------------------------------------------------------
 constructor TRotator.create(IDC: string);
+ var  inifile: TiniFile;
 begin
    id := 'D' + idc;
-   maxstep :=1024;
+    inifile := TINIFile.Create(FilePath + 'multifocus.ini');
+     with inifile do
+   begin
+      maxstep := readinteger ('Rotator', 'MaxSteps', 10000);
+   end;
+   inifile.Free;
    step_size := 360.0/maxstep;
-   slot[1] := 0.0;
-   slot[2] := 45.0;
-   slot[3] := 90.0;
-   slot[4] := 135.0;
-   slot[5] := 180.0;
-   slot[6] := 225.0;
-   slot[7] := 270.0;
-   slot[8] := 315.0;
+   slot[1]:=0.0;
+   slot[2]:=45.0;
+    slot[3]:=90.0;
+   slot[4]:=135.0;
+    slot[5]:=180.0;
+   slot[6]:=225.0;
+    slot[7]:=270.0;
+   slot[8]:=315.0;
+
    moving:=false;
+
 end;
 procedure trotator.send(str: String);
 var n: integer;

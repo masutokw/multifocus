@@ -6,7 +6,7 @@ uses
    Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
    Dialogs, Spin, StdCtrls, EnhEdits, Buttons, CPort, CPortCtl, ComCtrls, ComObj,
   // sUpDown, sButton, ExtCtrls, sPanel, sTrackBar,
-   filterlist, drivers, activex,
+   filterlist, drivers, activex,logs,inifiles,
   Vcl.ExtCtrls;
    
 type
@@ -36,8 +36,6 @@ type
       CounterFloatEdit: TFloatEdit;
       reverseCheckBox: TCheckBox;
       TargetFloatEdit: TFloatEdit;
-      GroupBox3: TGroupBox;
-      ComTerminal1: TComTerminal;
       GroupBox5: TGroupBox;
       ComDataPacket1: TComDataPacket;
       FButton1: TButton;
@@ -73,7 +71,6 @@ type
       WButton8: TButton;
       WButton9: TButton;
       Image2: TImage;
-      StaticText1: TStaticText;
       targetLongEdit2: TLongEdit;
       RButton7: TButton;
       RButton8: TButton;
@@ -85,15 +82,12 @@ type
       Button6f: TButton;
       Label2: TLabel;
       Button2: TButton;
-      CheckBox1: TCheckBox;
-      LongEdit1: TLongEdit;
-      Button3: TButton;
       ComDataPacket2: TComDataPacket;
     ComDataPacket3: TComDataPacket;
     Timer1: TTimer;
+    CheckBox1: TCheckBox;
       procedure SpinButton1UpClick(Sender: TObject);
       procedure SpinButton1DownClick(Sender: TObject);
-      procedure CheckBox2Click(Sender: TObject);
       procedure Button11Click(Sender: TObject);
       procedure Button12Click(Sender: TObject);
       procedure writecominter(device, str: string);
@@ -123,11 +117,12 @@ type
       procedure Button1fClick(Sender: TObject);
       procedure Button2Click(Sender: TObject);
       procedure CheckBox1Click(Sender: TObject);
-      procedure Button3Click(Sender: TObject);
+
       procedure ComDataPacket2Packet(Sender: TObject; const Str: String);
     procedure Button4Click(Sender: TObject);
     procedure ComDataPacket3Packet(Sender: TObject; const Str: String);
     procedure Timer1Timer(Sender: TObject);
+    procedure CheckBox2Click(Sender: TObject);
    private
       { Private declarations }
    public
@@ -158,7 +153,7 @@ begin
    comport1.WriteStr('D2P#');
    comport1.WriteStr('D3P#');
    comport1.WriteStr('D4P#');
-   comport1.WriteStr('D1T#');
+  // comport1.WriteStr('D1T#');
 end;
 end;
 
@@ -170,17 +165,11 @@ begin
    end;
 end;
 
-procedure TMFocusForm.CheckBox2Click(Sender: TObject);
-begin
-   groupbox3.Visible := checkbox2.Checked;
-end;
-
 procedure TMFocusForm.Button11Click(Sender: TObject);
 begin
-//comport1.Port:=comcombobox1.Text;
-  comport1.Port:='COM33';;
-   comport1.Connected := not comport1.Connected;
-    timer1.Enabled:=comport1.Connected;
+comport1.Port:=comcombobox1.Text;
+comport1.Connected := not comport1.Connected;
+ timer1.Enabled:=comport1.Connected;
 end;
 
 procedure TMFocusForm.Button12Click(Sender: TObject);
@@ -215,7 +204,8 @@ end;
 
 procedure TMFocusForm.Button1Click(Sender: TObject);
 begin
-   filterform.Show
+   filterform.Show ;
+
 end;
 
 
@@ -255,7 +245,13 @@ procedure TMFocusForm.FormCreate(Sender: TObject);
 
 var v: double;
    i, h: integer;
+  inifile: TiniFile;
 begin
+     inifile := TINIFile.Create(ExtractFilePath(Application.EXEName)+'multifocus.ini');
+     with inifile do
+   begin
+     comcombobox1.Text:= readstring ('Serial','Port', 'COM1');
+   end;
    SetWindowPos(handle, HWND_TOPMOST, Left, Top, Width, Height, 0);
    filepath := ExtractFilePath(Application.EXEName) ;
    focuserA := TFocus.create('1');
@@ -266,15 +262,18 @@ begin
    filterw.comport := comport1;
    rotator := Trotator.create('4');
    rotator.comport := comport1;
+   comport1.Port:=comcombobox1.Text;
+   comport1.Connected := not comport1.Connected;
+   timer1.Enabled:=comport1.Connected ;
 
-
-  // comport1.Connected := true;
+   comport1.Connected := true;
    for  i := 1 to 6 do
    begin
       safeArraygetElement(filterw.SafeArray, i, h);
       label2.Caption := label2.Caption + ' ' + inttostr(h);
-      // hirestimer1.Enabled:=true;
+
    end;
+   checkbox1.checked:=comport1.Connected;
 end;
 
 
@@ -434,13 +433,12 @@ begin
    timer1.Enabled := checkbox1.Checked;
 end;
 
-procedure TMFocusForm.Button3Click(Sender: TObject);
+procedure TMFocusForm.CheckBox2Click(Sender: TObject);
 begin
-   comport1.WriteStr('D2N' + inttostr(longedit1.Value) + 'R#');
-   comport1.WriteStr('D1N' + inttostr(longedit1.Value) + 'R#');
-   comport1.WriteStr('D3N' + inttostr(longedit1.Value) + 'R#');
-    comport1.WriteStr('D4N' + inttostr(longedit1.Value) + 'R#');
+ if checkbox2.Checked  then formlog.show else formlog.Hide;
 end;
+
+
 
 procedure TMFocusForm.ComDataPacket2Packet(Sender: TObject;
 const Str: String);

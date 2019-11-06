@@ -74,7 +74,7 @@ end;
 
 function TFocuser.Get_Position: Integer;
 begin
-focuserA.send ('P#');
+//focuserA.send ('P#');
 result:=focuserA.position;
 
 end;

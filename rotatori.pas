@@ -61,7 +61,7 @@ end;
 
 function TRotator.Get_Position: Single;
 begin
-rotator.get_angle;
+//rotator.get_angle;
 result:=rotator.angle;
 end;
 function TRotator.Get_Reverse: WordBool;
@@ -131,7 +131,7 @@ begin
 end;
 procedure TRotator.Set_Connected(pVal: WordBool);
 begin
- 
+
 end;
 procedure TRotator.Set_Reverse(pval:WordBool);
 begin

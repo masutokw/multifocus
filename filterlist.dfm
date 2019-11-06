@@ -1,9 +1,11 @@
 object FilterForm: TFilterForm
-  Left = 932
-  Top = 236
-  Width = 533
-  Height = 383
+  Left = 1166
+  Top = 77
+  AutoSize = True
+  BorderStyle = bsSizeToolWin
   Caption = 'Config'
+  ClientHeight = 344
+  ClientWidth = 522
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -36,6 +38,7 @@ object FilterForm: TFilterForm
     0000000000000000000000000000000000000000000000000000000000000000
     0000000000000000000000000000000000000000000080000001C0000003}
   OldCreateOrder = False
+  Position = poDesigned
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -77,7 +80,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 9
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         MaxLength = 5
@@ -106,7 +109,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 30
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -134,7 +137,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 50
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -162,7 +165,7 @@ object FilterForm: TFilterForm
         Left = 185
         Top = 71
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -190,7 +193,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 91
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -218,7 +221,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 112
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -259,7 +262,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 13
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -299,7 +302,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 54
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..3000'
         ParentShowHint = False
         ShowHint = True
@@ -325,7 +328,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 74
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..300000'
         ParentShowHint = False
         ShowHint = True
@@ -337,18 +340,22 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 94
         Width = 58
-        Height = 17
+        Height = 21
+        Hint = '0..3000'
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 20
         Value = 30
+        MaxValue = 3000
       end
       object FloatEditSlsize: TFloatEdit
         Left = 61
         Top = 33
         Width = 58
-        Height = 17
+        Height = 21
         MaxLength = 10
         TabOrder = 21
-        Value = 1
+        Value = 1.000000000000000000
         NumericType = ntFixed
       end
       object ButtonreadIC: TButton
@@ -396,7 +403,7 @@ object FilterForm: TFilterForm
         Left = 183
         Top = 11
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -424,7 +431,7 @@ object FilterForm: TFilterForm
         Left = 183
         Top = 31
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -452,7 +459,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 51
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -480,7 +487,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 71
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -508,7 +515,7 @@ object FilterForm: TFilterForm
         Left = 184
         Top = 91
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -536,7 +543,7 @@ object FilterForm: TFilterForm
         Left = 185
         Top = 111
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         Color = clMoneyGreen
         ParentShowHint = False
@@ -577,7 +584,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 13
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -617,7 +624,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 54
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..3000'
         ParentShowHint = False
         ShowHint = True
@@ -643,7 +650,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 74
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -655,7 +662,7 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 94
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -667,10 +674,10 @@ object FilterForm: TFilterForm
         Left = 61
         Top = 33
         Width = 58
-        Height = 17
+        Height = 21
         MaxLength = 10
         TabOrder = 21
-        Value = 1
+        Value = 1.000000000000000000
         NumericType = ntFixed
       end
       object Button1: TButton
@@ -690,6 +697,15 @@ object FilterForm: TFilterForm
         Caption = 'To IC'
         TabOrder = 23
         OnClick = Button7Click
+      end
+      object Button8: TButton
+        Left = 146
+        Top = 137
+        Width = 58
+        Height = 16
+        Caption = 'Button8'
+        TabOrder = 24
+        OnClick = Button8Click
       end
     end
     object GroupBox4: TGroupBox
@@ -731,7 +747,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 60
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -758,7 +774,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 78
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -785,7 +801,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 97
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -812,7 +828,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 115
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -839,7 +855,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 134
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -866,7 +882,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 152
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -886,7 +902,7 @@ object FilterForm: TFilterForm
         Left = 52
         Top = 9
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -914,7 +930,7 @@ object FilterForm: TFilterForm
         Left = 162
         Top = 9
         Width = 41
-        Height = 17
+        Height = 21
         Hint = '0..3000'
         ParentShowHint = False
         ShowHint = True
@@ -926,14 +942,14 @@ object FilterForm: TFilterForm
         Left = 52
         Top = 30
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..100'
         MaxLength = 10
         ParentShowHint = False
         ShowHint = True
         TabOrder = 17
-        Value = 1
-        MaxValue = 100
+        Value = 1.000000000000000000
+        MaxValue = 100.000000000000000000
         NumericType = ntFixed
       end
       object Button5: TButton
@@ -964,7 +980,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 171
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -991,7 +1007,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 189
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -1004,7 +1020,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 61
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1018,7 +1034,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 79
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1032,7 +1048,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 98
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1046,7 +1062,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 116
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1060,7 +1076,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 135
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1074,7 +1090,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 153
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1088,7 +1104,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 172
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1102,7 +1118,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 190
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1211,7 +1227,7 @@ object FilterForm: TFilterForm
         Left = 168
         Top = 208
         Width = 58
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -1224,7 +1240,7 @@ object FilterForm: TFilterForm
         Left = 116
         Top = 209
         Width = 50
-        Height = 20
+        Height = 21
         Hint = '0..30000'
         Color = clSkyBlue
         ParentShowHint = False
@@ -1241,6 +1257,18 @@ object FilterForm: TFilterForm
         Caption = 'ReadIC'
         TabOrder = 43
         OnClick = Button2Click
+      end
+      object LongEdit3: TLongEdit
+        Left = 162
+        Top = 31
+        Width = 41
+        Height = 21
+        Hint = '0..3000'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 44
+        Value = 100
+        MaxValue = 3000
       end
     end
     object GroupBox5: TGroupBox
@@ -1266,9 +1294,9 @@ object FilterForm: TFilterForm
       end
       object LongEdit1: TLongEdit
         Left = 61
-        Top = 13
+        Top = 9
         Width = 58
-        Height = 17
+        Height = 21
         Hint = '0..30000'
         ParentShowHint = False
         ShowHint = True
@@ -1291,16 +1319,25 @@ object FilterForm: TFilterForm
         TabOrder = 2
       end
       object LongEdit2: TLongEdit
-        Left = 62
+        Left = 61
         Top = 31
         Width = 58
-        Height = 17
-        Hint = '0..300000'
+        Height = 21
+        Hint = '0..300'
         ParentShowHint = False
         ShowHint = True
         TabOrder = 3
-        Value = 300
-        MaxValue = 300000
+        Value = 15
+        MaxValue = 300
+      end
+      object Button9: TButton
+        Left = 128
+        Top = 13
+        Width = 57
+        Height = 17
+        Caption = 'To IC'
+        TabOrder = 4
+        OnClick = Button9Click
       end
     end
   end
@@ -1321,14 +1358,5 @@ object FilterForm: TFilterForm
     Caption = 'Save'
     TabOrder = 2
     OnClick = Button4Click
-  end
-  object Button8: TButton
-    Left = 160
-    Top = 325
-    Width = 71
-    Height = 18
-    Caption = 'Button8'
-    TabOrder = 3
-    OnClick = Button8Click
   end
 end

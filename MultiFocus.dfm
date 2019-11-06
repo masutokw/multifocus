@@ -1,25 +1,26 @@
 object MFocusForm: TMFocusForm
-  Left = 729
-  Top = 125
+  Left = 617
+  Top = 386
   AutoSize = True
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'MultiFocus'
-  ClientHeight = 439
-  ClientWidth = 342
+  ClientHeight = 305
+  ClientWidth = 362
   Color = clBtnFace
+  DockSite = True
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poDesigned
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Image2: TImage
-    Left = 295
-    Top = 204
+    Left = 40
+    Top = 257
     Width = 39
     Height = 48
     Picture.Data = {
@@ -232,11 +233,12 @@ object MFocusForm: TMFocusForm
       746D2E73692E746E2C75722874732A736E2C736E2E726E2F726E2E746D2E746D
       2E746D2E746D2E746D2E746D2E746D2E746D2F746D2F746D31736D32736D2D70
       6D3473720B7D92000000}
+    Visible = False
   end
   object GroupBox6: TGroupBox
     Left = 0
-    Top = 221
-    Width = 168
+    Top = 36
+    Width = 361
     Height = 35
     Caption = 'Heater'
     Font.Charset = ANSI_CHARSET
@@ -245,9 +247,9 @@ object MFocusForm: TMFocusForm
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 4
     object Label1: TLabel
-      Left = 116
+      Left = 120
       Top = 13
       Width = 47
       Height = 16
@@ -261,18 +263,27 @@ object MFocusForm: TMFocusForm
     end
     object TrackBar1: TTrackBar
       Left = 4
-      Top = 12
+      Top = 13
       Width = 110
       Height = 19
       TabOrder = 0
       ThumbLength = 10
     end
+    object CheckBox1: TCheckBox
+      Left = 179
+      Top = 15
+      Width = 56
+      Height = 12
+      Caption = 'Timer'
+      TabOrder = 1
+      OnClick = CheckBox1Click
+    end
   end
   object FocuserGroupBox: TGroupBox
     Left = 0
-    Top = 37
-    Width = 165
-    Height = 87
+    Top = 74
+    Width = 178
+    Height = 98
     Caption = 'Focuser1'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
@@ -285,7 +296,7 @@ object MFocusForm: TMFocusForm
       Left = 7
       Top = 12
       Width = 49
-      Height = 20
+      Height = 21
       Hint = '0..100000'
       Color = clSilver
       ParentShowHint = False
@@ -352,7 +363,7 @@ object MFocusForm: TMFocusForm
       Left = 7
       Top = 35
       Width = 49
-      Height = 20
+      Height = 21
       Hint = '0..100000'
       Color = clSkyBlue
       ParentShowHint = False
@@ -451,11 +462,12 @@ object MFocusForm: TMFocusForm
     end
   end
   object GroupBox1: TGroupBox
-    Left = 166
-    Top = 37
-    Width = 174
-    Height = 86
+    Left = 0
+    Top = 173
+    Width = 178
+    Height = 98
     Caption = 'Focuser 2'
+    DockSite = True
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -11
@@ -467,7 +479,7 @@ object MFocusForm: TMFocusForm
       Left = 4
       Top = 13
       Width = 50
-      Height = 20
+      Height = 21
       Hint = '0..100000'
       Color = clSilver
       ParentShowHint = False
@@ -554,7 +566,7 @@ object MFocusForm: TMFocusForm
       Left = 4
       Top = 36
       Width = 50
-      Height = 20
+      Height = 21
       Hint = '0..30000'
       Color = clSkyBlue
       ParentShowHint = False
@@ -631,10 +643,10 @@ object MFocusForm: TMFocusForm
     end
   end
   object GroupBox2: TGroupBox
-    Left = 164
-    Top = 124
+    Left = 184
+    Top = 74
     Width = 178
-    Height = 83
+    Height = 98
     Caption = 'Rotator'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
@@ -718,7 +730,7 @@ object MFocusForm: TMFocusForm
       Left = 2
       Top = 13
       Width = 58
-      Height = 20
+      Height = 21
       Hint = '0..360'
       Color = clSilver
       ParentShowHint = False
@@ -741,7 +753,7 @@ object MFocusForm: TMFocusForm
       Left = 2
       Top = 36
       Width = 58
-      Height = 20
+      Height = 21
       Hint = '0..360'
       Color = clSkyBlue
       ParentShowHint = False
@@ -881,42 +893,10 @@ object MFocusForm: TMFocusForm
       OnMouseDown = CCButtonMouseDown
     end
   end
-  object GroupBox3: TGroupBox
-    Left = 2
-    Top = 253
-    Width = 339
-    Height = 186
-    Caption = 'Log'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 3
-    object ComTerminal1: TComTerminal
-      Left = 5
-      Top = 21
-      Width = 327
-      Height = 152
-      Color = clBlack
-      ComPort = ComPort1
-      Emulation = teVT100orANSI
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clYellow
-      Font.Height = -11
-      Font.Name = 'Source Code Pro'
-      Font.Style = []
-      LocalEcho = True
-      Rows = 12
-      ScrollBars = ssVertical
-      TabOrder = 0
-    end
-  end
   object GroupBox5: TGroupBox
-    Left = 1
-    Top = 124
-    Width = 161
+    Left = 184
+    Top = 173
+    Width = 178
     Height = 98
     Caption = 'Filter'
     Font.Charset = ANSI_CHARSET
@@ -925,12 +905,12 @@ object MFocusForm: TMFocusForm
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 3
     object Image1: TImage
-      Left = 81
-      Top = 8
-      Width = 75
-      Height = 67
+      Left = 84
+      Top = 17
+      Width = 69
+      Height = 64
       Picture.Data = {
         07544269746D6170E6370000424DE63700000000000036000000280000004700
         0000420000000100180000000000B0370000130B0000130B0000000000000000
@@ -1382,8 +1362,8 @@ object MFocusForm: TMFocusForm
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000}
     end
     object Label2: TLabel
-      Left = 84
-      Top = 78
+      Left = 3
+      Top = 81
       Width = 71
       Height = 14
       AutoSize = False
@@ -1491,7 +1471,7 @@ object MFocusForm: TMFocusForm
   object GroupBox7: TGroupBox
     Left = 0
     Top = 0
-    Width = 341
+    Width = 362
     Height = 38
     Caption = 'Serial'
     Font.Charset = ANSI_CHARSET
@@ -1500,9 +1480,9 @@ object MFocusForm: TMFocusForm
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
     object ComLed1: TComLed
-      Left = 67
+      Left = 69
       Top = 15
       Width = 14
       Height = 15
@@ -1511,19 +1491,17 @@ object MFocusForm: TMFocusForm
       Kind = lkPurpleLight
     end
     object CheckBox2: TCheckBox
-      Left = 243
-      Top = 13
-      Width = 46
+      Left = 247
+      Top = 15
+      Width = 43
       Height = 20
       Caption = 'Log'
-      Checked = True
-      State = cbChecked
       TabOrder = 0
       OnClick = CheckBox2Click
     end
     object Button1: TButton
-      Left = 283
-      Top = 13
+      Left = 296
+      Top = 15
       Width = 44
       Height = 20
       Caption = 'Config.'
@@ -1531,17 +1509,17 @@ object MFocusForm: TMFocusForm
       OnClick = Button1Click
     end
     object Button12: TButton
-      Left = 167
-      Top = 13
-      Width = 72
+      Left = 159
+      Top = 15
+      Width = 70
       Height = 20
       Caption = 'Hard Reset'
       TabOrder = 2
       OnClick = Button12Click
     end
     object Button11: TButton
-      Left = 8
-      Top = 13
+      Left = 10
+      Top = 15
       Width = 55
       Height = 20
       Caption = 'Connect'
@@ -1549,69 +1527,32 @@ object MFocusForm: TMFocusForm
       OnClick = Button11Click
     end
     object ComComboBox1: TComComboBox
-      Left = 95
-      Top = 12
+      Left = 89
+      Top = 14
       Width = 64
       Height = 21
       ComPort = ComPort1
       ComProperty = cpPort
-      Text = 'COM1'
+      Text = 'COM51'
       Style = csDropDownList
       Color = clCaptionText
-      ItemIndex = 0
+      ItemIndex = 4
       TabOrder = 4
     end
   end
-  object StaticText1: TStaticText
-    Left = 242
-    Top = 258
-    Width = 83
-    Height = 17
-    Caption = 'A.Caparr'#243's 2016'
-    TabOrder = 7
-  end
   object Button2: TButton
-    Left = 231
-    Top = 209
-    Width = 53
+    Left = 99
+    Top = 277
+    Width = 37
     Height = 20
     Caption = 'Get'
-    TabOrder = 8
+    TabOrder = 6
+    Visible = False
     OnClick = Button2Click
   end
-  object CheckBox1: TCheckBox
-    Left = 168
-    Top = 209
-    Width = 56
-    Height = 12
-    Caption = 'Timer'
-    TabOrder = 9
-    OnClick = CheckBox1Click
-  end
-  object LongEdit1: TLongEdit
-    Left = 169
-    Top = 231
-    Width = 47
-    Height = 17
-    Hint = '0..10000'
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 10
-    Value = 0
-    MaxValue = 10000
-  end
-  object Button3: TButton
-    Left = 231
-    Top = 233
-    Width = 43
-    Height = 19
-    Caption = 'Spd'
-    TabOrder = 11
-    OnClick = Button3Click
-  end
   object ComPort1: TComPort
-    BaudRate = br57600
-    Port = 'COM1'
+    BaudRate = br9600
+    Port = 'COM51'
     Parity.Bits = prNone
     StopBits = sbOneStopBit
     DataBits = dbEight
@@ -1624,8 +1565,8 @@ object MFocusForm: TMFocusForm
     FlowControl.XonXoffIn = False
     StoredProps = [spBasic]
     TriggersOnRxChar = False
-    Left = 210
-    Top = 313
+    Left = 154
+    Top = 265
   end
   object ComDataPacket1: TComDataPacket
     ComPort = ComPort1
@@ -1633,8 +1574,8 @@ object MFocusForm: TMFocusForm
     StartString = 'd'
     StopString = '##'
     OnPacket = ComDataPacket1Packet
-    Left = 123
-    Top = 376
+    Left = 267
+    Top = 280
   end
   object ComDataPacket2: TComDataPacket
     ComPort = ComPort1
@@ -1649,14 +1590,14 @@ object MFocusForm: TMFocusForm
     StartString = #191
     StopString = '?'
     OnPacket = ComDataPacket3Packet
-    Left = 53
-    Top = 316
+    Left = 45
+    Top = 308
   end
   object Timer1: TTimer
     Enabled = False
-    Interval = 300
+    Interval = 500
     OnTimer = Timer1Timer
-    Left = 274
-    Top = 293
+    Left = 218
+    Top = 269
   end
 end

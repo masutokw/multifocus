@@ -112,7 +112,9 @@ type
     Button4: TButton;
     Button6: TButton;
     Button7: TButton;
+    Button9: TButton;
     Button8: TButton;
+    LongEdit3: TLongEdit;
       procedure ReadSettings;
       procedure SaveSettings;
       procedure FormCreate(Sender: TObject);
@@ -120,10 +122,11 @@ type
       procedure Button4Click(Sender: TObject);
       procedure ButtonreadICClick(Sender: TObject);
       procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
-    procedure Button7Click(Sender: TObject);
-    procedure Button5Click(Sender: TObject);
+      procedure Button2Click(Sender: TObject);
+      procedure Button6Click(Sender: TObject);
+      procedure Button7Click(Sender: TObject);
+      procedure Button5Click(Sender: TObject);
+      procedure Button9Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
       
    private
@@ -205,7 +208,7 @@ begin
       OffLongEdit7.Value := readinteger('Filter', 'Off7', 0);
       OffLongEdit8.Value := readinteger('Filter', 'Off8', 0);
       OffLongEdit9.Value := readinteger('Filter', 'Off9', 0);
-
+      LongEdit1.Value:=readinteger('Rotator', 'Maxsteps',1000);
    end;
    inifile.Free;
 end;
@@ -271,7 +274,8 @@ begin
       writeinteger('Filter', 'Off7', OffLongEdit7.Value);
       writeinteger('Filter', 'Off8', OffLongEdit8.Value);
       writeinteger('Filter', 'Off9', OffLongEdit9.Value);
-
+      writeinteger('Rotator', 'Maxsteps',LongEdit1.Value);
+      writestring('Serial','Port',rotator.comport.Port);
 
    end;
    inifile.Free;
@@ -323,6 +327,8 @@ FocuserA.send('N'+longeditSl3.AsString+'I2#');
 FocuserA.send('N'+longeditSl4.AsString+'I3#');
 FocuserA.send('N'+longeditSl5.AsString+'I4#');
 FocuserA.send('N'+longeditSl6.AsString+'I5#');
+ FocuserA.send('N'+longedit10.AsString+'R#');
+FocuserA.send('G#');
 end;
 
 procedure TFilterForm.Button7Click(Sender: TObject);
@@ -335,6 +341,13 @@ FocuserB.send('N'+longeditS3.AsString+'I2#');
 FocuserB.send('N'+longeditS4.AsString+'I3#');
 FocuserB.send('N'+longeditS5.AsString+'I4#');
 FocuserB.send('N'+longeditS6.AsString+'I5#');
+FocuserB.send('N'+longedit14.AsString+'R#');
+FocuserB.send('G#');
+end;
+
+procedure TFilterForm.Button8Click(Sender: TObject);
+begin
+  FocuserB.send('G#');
 end;
 
 procedure TFilterForm.Button5Click(Sender: TObject);
@@ -350,6 +363,7 @@ Filterw.send('N'+Poslongedit6.AsString+'I5#');
 Filterw.send('N'+Poslongedit7.AsString+'I6#');
 Filterw.send('N'+Poslongedit8.AsString+'I7#');
 Filterw.send('N'+Poslongedit9.AsString+'I8#');
+FilterW.send('N'+longedit3.AsString+'R#');
 FilterW.send('N'+OffLongEdit1.asstring+'OI0,'+filterEdit1.Text+'#');
 FilterW.send('N'+OffLongEdit2.asstring+'OI1,'+filterEdit2.Text+'#');
 FilterW.send('N'+OffLongEdit3.asstring+'OI2,'+filterEdit3.Text+'#');
@@ -359,12 +373,18 @@ FilterW.send('N'+OffLongEdit6.asstring+'OI5,'+filterEdit6.Text+'#');
 FilterW.send('N'+OffLongEdit7.asstring+'OI6,'+filterEdit7.Text+'#');
 FilterW.send('N'+OffLongEdit8.asstring+'OI7,'+filterEdit8.Text+'#');
 FilterW.send('N'+OffLongEdit9.asstring+'OI8,'+filterEdit9.Text+'#');
-
+FilterW.send('G#');
 end;
 
-procedure TFilterForm.Button8Click(Sender: TObject);
+
+
+procedure TFilterForm.Button9Click(Sender: TObject);
 begin
- FilterW.send('N'+OffLongEdit1.asstring+'OI0,'+filterEdit1.Text+'#');
+         Rotator.maxstep:= longedit1.Value  ;
+         Rotator.send('N'+longeditSMax.AsString+'p#');
+         Rotator.step_size := 360.0/rotator.maxstep;
+         Rotator.send('N'+longedit2.AsString+'R#');
+         Rotator.send('G#');
 end;
 
 end.
